@@ -29,6 +29,8 @@
       <li><a href="#themes">Themes</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="privacy.html">Privacy</a></li>
+      <li><a href="terms.html">Terms</a></li>
+      <li><a href="notices.html">Notices</a></li>
     </ul>
   </div>
 </nav>
@@ -88,7 +90,7 @@
         <div class="phone" data-t="Statistics" data-d="Spot weak, reused and short passwords at a glance."><span class="cam"></span><img src="img/stats.webp" alt="Password statistics" width="540" height="1200"></div>
         <div class="phone" data-t="Manage" data-d="Categories, fields, archive, statistics, import/export and backup in one hub."><span class="cam"></span><img src="img/manage.webp" alt="Manage hub" width="540" height="1200"></div>
         <div class="phone" data-t="Google Drive backup" data-d="Back up your encrypted vault to a CipherON folder in your own Google Drive."><span class="cam"></span><img src="img/drive.webp" alt="Google Drive backup screen" width="540" height="1200"></div>
-        <div class="phone" data-t="Sync" data-d="Optionally sync to your own WebDAV server, with conflict-safe versions."><span class="cam"></span><img src="img/sync.webp" alt="WebDAV sync screen" width="540" height="1200"></div>
+        <div class="phone" data-t="Sync" data-d="Optionally sync to your own SMB file share, with conflict-safe versions."><span class="cam"></span><img src="img/sync.webp" alt="Sync screen" width="540" height="1200"></div>
         <div class="phone" data-t="Settings" data-d="Nine screen designs, auto-lock, biometrics, screenshot protection and more."><span class="cam"></span><img src="img/settings.webp" alt="Settings screen" width="540" height="1200"></div>
       </div>
     </div>
@@ -121,7 +123,7 @@
         <li data-i="3"><b>Argon2id key derivation</b><span>64 MB of memory, 3 passes and a random salt turn your password into the vault key, making guessing slow and costly.</span></li>
         <li data-i="2"><b>AES-256 encrypted vault</b><span>The database is encrypted with SQLCipher. Entries, notes, history and attachments are all ciphertext at rest.</span></li>
         <li data-i="1"><b>Android Keystore</b><span>Fingerprint unlock and saved sign-in tokens are protected by keys held in the phone's secure hardware or Keystore.</span></li>
-        <li data-i="0"><b>Encrypted backups</b><span>A backup file is the vault in encrypted form. Google Drive, WebDAV and any file location only ever see ciphertext.</span></li>
+        <li data-i="0"><b>Encrypted backups</b><span>A backup file is the vault in encrypted form. Google Drive, SMB shares and any file location only ever see ciphertext.</span></li>
       </ol>
       <div class="chips">
         <span class="chip">Auto-lock</span><span class="chip">Screenshot block</span><span class="chip">Clipboard auto-clear</span>
@@ -177,13 +179,13 @@
       <ul class="steps">
         <li><b>Google Drive backup</b><span>Sign in with a Google account already on your phone. CipherON creates a folder named <em>CipherON</em> in your Drive and uploads the encrypted backup. It can only see files it created itself.</span></li>
         <li><b>Backup file</b><span>Save or share an encrypted <code>.cphn</code> file, or let CipherON write one to a folder of your choice whenever the vault locks.</span></li>
-        <li><b>WebDAV sync</b><span>Sync with Nextcloud, ownCloud or any WebDAV server. Conflicts are detected, never overwritten silently, and older versions can be restored.</span></li>
+        <li><b>SMB sync</b><span>Sync with a Windows, Samba or NAS file share (SMB 2 / 3), found automatically on your network. Conflicts are detected, never overwritten silently, and older versions can be restored.</span></li>
         <li><b>New phone?</b><span>Restore from a backup file or from Google Drive on the first-run screen, then enter your master password.</span></li>
       </ul>
     </div>
     <div class="pair rv" data-tilt-pair>
       <div class="phone"><span class="cam"></span><img src="img/drive.webp" alt="Google Drive backup screen" loading="lazy" width="540" height="1200"></div>
-      <div class="phone"><span class="cam"></span><img src="img/sync.webp" alt="WebDAV sync screen" loading="lazy" width="540" height="1200"></div>
+      <div class="phone"><span class="cam"></span><img src="img/sync.webp" alt="Sync screen" loading="lazy" width="540" height="1200"></div>
     </div>
   </div>
 </section>
@@ -254,7 +256,7 @@
 <footer>
   <div class="wrap">
     <span>&copy; 2026 CipherON &middot; version 1.2.4</span>
-    <span><a href="privacy.html">Privacy policy</a> &middot; <a href="https://github.com/esw4">Developer on GitHub</a></span>
+    <span><a href="privacy.html">Privacy policy</a> &middot; <a href="terms.html">Terms of use</a> &middot; <a href="notices.html">Notices</a> &middot; <a href="https://github.com/esw4">Developer on GitHub</a></span>
   </div>
 </footer>
 
