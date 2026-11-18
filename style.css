@@ -204,3 +204,14 @@ footer a{color:var(--muted)}footer a:hover{color:var(--accent)}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
 }
+
+/* contact form */
+.form{display:grid;gap:16px;margin:22px 0 10px}
+.form label{display:grid;gap:6px;font-weight:700;letter-spacing:.04em;font-size:.9rem}
+.form label span{font-weight:400;color:var(--muted);letter-spacing:0}
+.form input,.form select,.form textarea{font:inherit;color:var(--fg);background:var(--bg2);border:2px solid var(--line);padding:12px 14px;width:100%;border-radius:0}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--glow)}
+.form textarea{min-height:170px;resize:vertical}
+.form .hp{position:absolute;left:-9999px;height:0;overflow:hidden}
+.form .note{color:var(--muted);font-size:.9rem;margin:0}
+.form .ok{border:2px solid var(--accent);padding:12px 14px;color:var(--fg)}
