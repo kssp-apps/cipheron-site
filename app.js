@@ -34,21 +34,6 @@
     counters.forEach(function (c) { co.observe(c); });
   } else { counters.forEach(runCounter); }
 
-  /* ---------- hero: tilt with the pointer, drift with scroll ---------- */
-  var stack = $('#stack');
-  if (stack && !reduce) {
-    var stage = stack.parentNode, ry = 0, rx = 0, sc = 0;
-    var apply = function () { stack.style.transform = 'rotateX(' + (rx + sc * 0.02) + 'deg) rotateY(' + ry + 'deg) translateY(' + (sc * -0.08) + 'px)'; };
-    stage.addEventListener('pointermove', function (e) {
-      var b = stage.getBoundingClientRect();
-      ry = ((e.clientX - b.left) / b.width - 0.5) * 26;
-      rx = ((e.clientY - b.top) / b.height - 0.5) * -14;
-      apply();
-    });
-    stage.addEventListener('pointerleave', function () { ry = 0; rx = 0; apply(); });
-    window.addEventListener('scroll', function () { sc = Math.min(window.scrollY, 600); apply(); }, { passive: true });
-  }
-
   /* ---------- tilt cards and figures ---------- */
   $$('[data-tilt]').forEach(function (el) {
     if (reduce) return;
@@ -60,93 +45,6 @@
     });
     el.addEventListener('pointerleave', function () { target.style.transform = ''; });
   });
-  $$('[data-tilt-pair]').forEach(function (g) {
-    if (reduce) return;
-    var ph = $$('.phone', g);
-    g.addEventListener('pointermove', function (e) {
-      var b = g.getBoundingClientRect(), x = (e.clientX - b.left) / b.width - 0.5;
-      ph.forEach(function (p, i) {
-        var two = ph.length === 2;
-        p.style.transform = 'rotateY(' + (x * 30 + (two ? (i ? -16 : 16) : 0)) + 'deg)' + (two ? ' translateX(' + (i ? -34 : 34) + 'px)' : '');
-      });
-    });
-    g.addEventListener('pointerleave', function () { ph.forEach(function (p) { p.style.transform = ''; }); });
-  });
-
-  /* ---------- 3D carousel ---------- */
-  var ring = $('#ring'), car = $('#carousel');
-  if (ring && car) {
-    var items = $$('.phone', ring), n = items.length, step = 360 / n;
-    var angle = 0, target = 0, dragging = false, lastX = 0, auto = !reduce, idleT = null;
-    var capT = $('#capT'), capD = $('#capD'), dots = $('#dots'), cur = -1;
-    // radius so neighbouring phones just clear each other, capped for the container width
-    var radius = function () {
-      var w = items[0].offsetWidth || 230;
-      var r = (w * 1.12) / (2 * Math.tan(Math.PI / n));
-      return Math.max(260, Math.min(r, 620));
-    };
-    var R = radius();
-    items.forEach(function (it, i) { var d = document.createElement('i'); d.addEventListener('click', function () { go(i); }); dots.appendChild(d); });
-    function place() {
-      items.forEach(function (it, i) { it.style.transform = 'rotateY(' + (i * step) + 'deg) translateZ(' + R + 'px)'; });
-    }
-    function front() { return ((Math.round(-angle / step) % n) + n) % n; }
-    function paint() {
-      ring.style.transform = 'translateZ(' + (-R) + 'px) rotateY(' + angle + 'deg)';
-      var f = front();
-      if (f !== cur) {
-        cur = f;
-        capT.textContent = items[f].getAttribute('data-t');
-        capD.textContent = items[f].getAttribute('data-d');
-        $$('i', dots).forEach(function (d, i) { d.className = i === f ? 'on' : ''; });
-        items.forEach(function (it, i) { it.classList.toggle('dim', i !== f); });
-      }
-    }
-    function kick() {
-      auto = false; clearTimeout(idleT);
-      if (!reduce) idleT = setTimeout(function () { auto = true; }, 6000);
-    }
-    function go(i) {
-      var cf = front();
-      var diff = ((i - cf + n + n / 2) % n) - n / 2;
-      target = angle - diff * step;
-      kick();
-    }
-    function loop() {
-      if (!dragging) {
-        if (auto) { target = angle - 0.08; angle = target; }     // slow drift
-        else { angle += (target - angle) * 0.12; }               // ease to the chosen phone
-      }
-      paint();
-      requestAnimationFrame(loop);
-    }
-    place(); paint(); requestAnimationFrame(loop);
-    window.addEventListener('resize', function () { R = radius(); place(); });
-    car.addEventListener('pointerdown', function (e) {
-      dragging = true; lastX = e.clientX; car.classList.add('drag'); kick();
-      try { car.setPointerCapture(e.pointerId); } catch (x) { /* older browsers */ }
-    });
-    car.addEventListener('pointermove', function (e) {
-      if (!dragging) return;
-      var dx = e.clientX - lastX; lastX = e.clientX; angle += dx * 0.35; target = angle;
-    });
-    var up = function () {
-      if (!dragging) return;
-      dragging = false; car.classList.remove('drag');
-      target = Math.round(angle / step) * step; kick();
-    };
-    car.addEventListener('pointerup', up);
-    car.addEventListener('pointercancel', up);
-    $('#prev').addEventListener('click', function () { go(front() - 1); });
-    $('#next').addEventListener('click', function () { go(front() + 1); });
-    car.tabIndex = 0;
-    car.addEventListener('keydown', function (e) {
-      if (e.key === 'ArrowLeft') { go(front() - 1); e.preventDefault(); }
-      if (e.key === 'ArrowRight') { go(front() + 1); e.preventDefault(); }
-    });
-    car.addEventListener('mouseenter', function () { auto = false; });
-    car.addEventListener('mouseleave', function () { kick(); });
-  }
 
   /* ---------- security layers ---------- */
   var layers = $$('.layer'), lis = $$('#slist li');

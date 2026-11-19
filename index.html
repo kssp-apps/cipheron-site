@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://kssp-apps.github.io/cipheron-site/logo.png">
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CipherON","operatingSystem":"Android 8.0+","applicationCategory":"SecurityApplication","softwareVersion":"1.2.4","description":"Offline-first encrypted password manager for Android."}
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"CipherON","operatingSystem":"Android 8.0+","applicationCategory":"SecurityApplication","description":"Offline-first encrypted password manager for Android."}
 </script>
 </head>
 <body>
@@ -42,23 +42,22 @@
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <h1>Your passwords.<br><em>Encrypted. Offline.</em><br>Yours.</h1>
+      <h1>Your passwords. <em>Encrypted. Offline.</em> Yours.</h1>
       <p class="lead">CipherON is a password manager for Android that keeps logins, notes, one-time codes and files in a vault that is encrypted on your phone. No accounts to create, no ads, no tracking, and the developer never sees your data.</p>
-      <div class="row">
+      <div class="row mid">
         <a class="btn" href="#screens">See the app</a>
         <a class="btn ghost" href="privacy.html">Privacy policy</a>
       </div>
-      <div class="badges" aria-label="Highlights">
+      <div class="badges mid" aria-label="Highlights">
         <span class="badge">AES-256</span><span class="badge">Argon2id</span><span class="badge">Fingerprint</span>
         <span class="badge">Works offline</span><span class="badge">No ads</span>
       </div>
     </div>
     <div class="stage" aria-hidden="true">
-      <div class="floor"></div>
-      <div class="stack" id="stack">
-        <div class="phone p1"><span class="cam"></span><img src="img/otp.webp" alt="" width="540" height="1200"></div>
-        <div class="phone p2"><span class="cam"></span><img src="img/vault.webp" alt="" width="540" height="1200"></div>
-        <div class="phone p3"><span class="cam"></span><img src="img/terminal-unlock.webp" alt="" width="540" height="1200"></div>
+      <div class="trio">
+        <div class="phone p1"><span class="cam"></span><img src="img/otp.webp?v=2611" alt="" width="540" height="853"></div>
+        <div class="phone p2"><span class="cam"></span><img src="img/vault.webp?v=2611" alt="" width="540" height="853"></div>
+        <div class="phone p3"><span class="cam"></span><img src="img/modern.webp?v=2611" alt="" width="540" height="853"></div>
       </div>
     </div>
   </div>
@@ -78,28 +77,19 @@
 <!-- ================= SCREENS ================= -->
 <section id="screens">
   <div class="wrap">
-    <h2 class="center rv"><span class="tag">The app</span>Every screen, in 3D</h2>
-    <p class="lead center rv">Drag, swipe or use the arrows. These are real screenshots from CipherON, shown with sample data.</p>
-
-    <div class="carousel" id="carousel" role="group" aria-roledescription="carousel" aria-label="App screenshots">
-      <div class="ring" id="ring">
-        <div class="phone" data-t="Vault" data-d="Search, sort and filter your logins. Favourites, categories and copy buttons sit right on the list."><span class="cam"></span><img src="img/vault.webp" alt="Vault list with sample logins" width="540" height="1200"></div>
-        <div class="phone" data-t="One-time codes" data-d="Live two-factor codes with a countdown. Tap to copy."><span class="cam"></span><img src="img/otp.webp" alt="One-time codes tab" width="540" height="1200"></div>
-        <div class="phone" data-t="Entry details" data-d="Everything about a login in one view. Passwords stay masked until you choose to show them."><span class="cam"></span><img src="img/detail.webp" alt="Entry with username, password, website and one-time code" width="540" height="1200"></div>
-        <div class="phone" data-t="Extra fields" data-d="Need a second username, a PIN or another website? Add as many as you like, each with its own label."><span class="cam"></span><img src="img/editor.webp" alt="Entry editor with extra username, PIN and website fields" width="540" height="1200"></div>
-        <div class="phone" data-t="Generator" data-d="Strong passwords, passphrases and PINs, with a strength meter and presets."><span class="cam"></span><img src="img/generator.webp" alt="Password generator" width="540" height="1200"></div>
-        <div class="phone" data-t="Statistics" data-d="Spot weak, reused and short passwords at a glance."><span class="cam"></span><img src="img/stats.webp" alt="Password statistics" width="540" height="1200"></div>
-        <div class="phone" data-t="Manage" data-d="Categories, fields, archive, statistics, import/export and backup in one hub."><span class="cam"></span><img src="img/manage.webp" alt="Manage hub" width="540" height="1200"></div>
-        <div class="phone" data-t="Google Drive backup" data-d="Back up your encrypted vault to a CipherON folder in your own Google Drive."><span class="cam"></span><img src="img/drive.webp" alt="Google Drive backup screen" width="540" height="1200"></div>
-        <div class="phone" data-t="Sync" data-d="Optionally sync to your own SMB file share, with conflict-safe versions."><span class="cam"></span><img src="img/sync.webp" alt="Sync screen" width="540" height="1200"></div>
-        <div class="phone" data-t="Settings" data-d="Nine screen designs, auto-lock, biometrics, screenshot protection and more."><span class="cam"></span><img src="img/settings.webp" alt="Settings screen" width="540" height="1200"></div>
-      </div>
-    </div>
-    <div class="cap" aria-live="polite"><h3 id="capT">Vault</h3><p id="capD"></p></div>
-    <div class="ctrls">
-      <button id="prev" aria-label="Previous screen">&larr;</button>
-      <div class="dots" id="dots" aria-hidden="true"></div>
-      <button id="next" aria-label="Next screen">&rarr;</button>
+    <h2 class="center rv"><span class="tag">The app</span>Every screen at a glance</h2>
+    <p class="lead center rv">Real screenshots from CipherON on a Galaxy Z Fold, shown with sample data. Scroll sideways to browse.</p>
+    <div class="gallery" tabindex="0" role="region" aria-label="App screenshots">
+      <figure><div class="phone"><span class="cam"></span><img src="img/vault.webp?v=2611" alt="Vault list with sample logins" width="540" height="853" loading="lazy"></div><figcaption><b>Vault</b>Search, sort and filter your logins. Favourites, categories and copy buttons sit right on the list.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/otp.webp?v=2611" alt="One-time codes tab" width="540" height="853" loading="lazy"></div><figcaption><b>One-time codes</b>Live two-factor codes with a countdown. Tap to copy.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/detail.webp?v=2611" alt="Entry with username, password, website and one-time code" width="540" height="853" loading="lazy"></div><figcaption><b>Entry details</b>Everything about a login in one view. Passwords stay masked until you choose to show them.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/editor.webp?v=2611" alt="Entry editor with extra username, PIN and website fields" width="540" height="853" loading="lazy"></div><figcaption><b>Extra fields</b>Need a second username, a PIN or another website? Add as many as you like, each with its own label.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/generator.webp?v=2611" alt="Password generator" width="540" height="853" loading="lazy"></div><figcaption><b>Generator</b>Strong passwords, passphrases and PINs, with a strength meter and presets.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/stats.webp?v=2611" alt="Password statistics" width="540" height="853" loading="lazy"></div><figcaption><b>Statistics</b>Spot weak, reused and short passwords at a glance.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/manage.webp?v=2611" alt="Manage hub" width="540" height="853" loading="lazy"></div><figcaption><b>Manage</b>Categories, fields, archive, statistics, import/export and backup in one hub.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/drive.webp?v=2611" alt="Google Drive backup screen" width="540" height="853" loading="lazy"></div><figcaption><b>Google Drive backup</b>Back up your encrypted vault to a CipherON folder in your own Google Drive.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/sync.webp?v=2611" alt="Sync screen" width="540" height="853" loading="lazy"></div><figcaption><b>Sync</b>Optionally sync to your own SMB file share, with conflict-safe versions.</figcaption></figure>
+      <figure><div class="phone"><span class="cam"></span><img src="img/settings.webp?v=2611" alt="Settings screen" width="540" height="853" loading="lazy"></div><figcaption><b>Settings</b>Nine screen designs, auto-lock, biometrics, screenshot protection and more.</figcaption></figure>
     </div>
   </div>
 </section>
@@ -128,26 +118,8 @@
       </ol>
       <div class="chips">
         <span class="chip">Auto-lock</span><span class="chip">Screenshot block</span><span class="chip">Clipboard auto-clear</span>
-        <span class="chip">Self-destruct after N wrong tries</span><span class="chip">No Android cloud backup</span><span class="chip">HTTPS-only sync</span>
+        <span class="chip">Self-destruct after N wrong tries</span><span class="chip">No Android cloud backup</span><span class="chip">Backup and sync switches, all off by default</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ANIMATIONS ================= -->
-<section id="terminal" style="background:var(--bg2);border-block:1px solid var(--line)">
-  <div class="wrap">
-    <h2 class="center rv"><span class="tag">Feels like a terminal</span>Unlock in green. Lock in red.</h2>
-    <p class="lead center rv">A short hacking-terminal sequence plays when the vault opens and closes. The hex you see is random decoration, never your real data. You can switch it off in Settings.</p>
-    <div class="anim">
-      <figure class="rv" data-tilt>
-        <div class="phone"><span class="cam"></span><img src="img/unlock-anim.webp" alt="Unlock animation: terminal text scrolls, then ACCESS GRANTED" loading="lazy" width="360" height="800"></div>
-        <figcaption><b>Access sequence</b>Handshake, Argon2id, open vault, verify, decrypt.</figcaption>
-      </figure>
-      <figure class="red rv" data-tilt>
-        <div class="phone"><span class="cam"></span><img src="img/lock-anim.webp" alt="Lock animation in red: terminal text scrolls, then VAULT LOCKED" loading="lazy" width="360" height="800"></div>
-        <figcaption><b>Lock sequence</b>Clear clipboard, flush, zero the key, close the vault.</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -184,9 +156,9 @@
         <li><b>New phone?</b><span>Restore from a backup file or from Google Drive on the first-run screen, then enter your master password.</span></li>
       </ul>
     </div>
-    <div class="pair rv" data-tilt-pair>
-      <div class="phone"><span class="cam"></span><img src="img/drive.webp" alt="Google Drive backup screen" loading="lazy" width="540" height="1200"></div>
-      <div class="phone"><span class="cam"></span><img src="img/sync.webp" alt="Sync screen" loading="lazy" width="540" height="1200"></div>
+    <div class="pair rv">
+      <div class="phone"><span class="cam"></span><img src="img/drive.webp?v=2611" alt="Google Drive backup screen" loading="lazy" width="540" height="853"></div>
+      <div class="phone"><span class="cam"></span><img src="img/sync.webp?v=2611" alt="Sync screen" loading="lazy" width="540" height="853"></div>
     </div>
   </div>
 </section>
@@ -195,7 +167,7 @@
 <section id="themes">
   <div class="wrap">
     <h2 class="center rv"><span class="tag">Screen designs</span>Pick a glow. This page changes too.</h2>
-    <p class="lead center rv">CipherON looks like a monochrome LCD: two colours, square corners, scanlines. Choose one of nine designs.</p>
+    <p class="lead center rv">Choose the normal Modern look, or one of nine LCD-style designs: two colours, square corners, scanlines.</p>
     <div class="sw" id="sw" role="group" aria-label="Colour design" style="justify-content:center">
       <button data-a="#ff8a00" data-o="#0a0a0a" aria-pressed="true"><i style="background:#ff8a00"></i>Orange</button>
       <button data-a="#ffb000" data-o="#1a1000"><i style="background:#ffb000"></i>Amber</button>
@@ -207,12 +179,11 @@
       <button data-a="#3dff6a" data-o="#050a05"><i style="background:#050a05;border-color:#3dff6a"></i>Phosphor</button>
       <button data-a="#00ff41" data-o="#000000"><i style="background:#000;border-color:#00ff41"></i>Terminal</button>
     </div>
-    <div class="fan" data-tilt-pair>
-      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/pal-orange.webp" alt="Orange design" loading="lazy" width="540" height="1200"></div><figcaption>Orange</figcaption></figure>
-      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/pal-amber.webp" alt="Amber design" loading="lazy" width="540" height="1200"></div><figcaption>Amber</figcaption></figure>
-      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/pal-green.webp" alt="Green design" loading="lazy" width="540" height="1200"></div><figcaption>Green</figcaption></figure>
-      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/pal-cyan.webp" alt="Cyan design" loading="lazy" width="540" height="1200"></div><figcaption>Cyan</figcaption></figure>
-      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/terminal-settings.webp" alt="Terminal design: black with green text" loading="lazy" width="540" height="1200"></div><figcaption>Terminal</figcaption></figure>
+    <div class="fan">
+      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/modern.webp?v=2611" alt="Modern design, the normal look" loading="lazy" width="540" height="853"></div><figcaption>Modern (normal)</figcaption></figure>
+      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/pal-orange.webp?v=2611" alt="Orange design" loading="lazy" width="540" height="853"></div><figcaption>Orange</figcaption></figure>
+      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/pal-cyan.webp?v=2611" alt="Cyan design" loading="lazy" width="540" height="853"></div><figcaption>Cyan</figcaption></figure>
+      <figure class="rv"><div class="phone"><span class="cam"></span><img src="img/terminal-settings.webp?v=2611" alt="Terminal design: black with green text" loading="lazy" width="540" height="853"></div><figcaption>Terminal</figcaption></figure>
     </div>
   </div>
 </section>
@@ -256,7 +227,7 @@
 
 <footer>
   <div class="wrap">
-    <span>&copy; 2026 CipherON &middot; version 1.2.4</span>
+    <span>&copy; 2026 CipherON</span>
     <span><a href="privacy.html">Privacy policy</a> &middot; <a href="terms.html">Terms of use</a> &middot; <a href="notices.html">Notices</a> &middot; <a href="contact.html">Contact</a></span>
   </div>
 </footer>
