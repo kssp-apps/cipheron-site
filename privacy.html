@@ -34,13 +34,13 @@
   <li>Biometric unlock (optional): Android protects a key in the Android Keystore and releases it after Android accepts your fingerprint or face. CipherON never receives biometric data.</li>
   <li>App settings and sign-in tokens for optional services are kept in the app's private storage; secrets among them are encrypted with a Keystore key.</li>
   <li>Clipboard: passwords and codes you copy are marked as sensitive and cleared automatically after the delay you set. Other apps with clipboard access on your phone may read the clipboard while it holds them.</li>
-  <li>Screenshots and recent-apps previews are blocked by default; you can allow them in Settings.</li>
+  <li>Screenshots and recent-apps previews are blocked by default; you can allow them in Settings. The optional encrypted file storage described in section 18 always blocks them while it is open.</li>
   <li>Android cloud backup and device-to-device transfer are disabled for the app, so the vault is not copied to Google or to a new phone by those features.</li>
 </ul>
 <h2>5. Permissions</h2>
 <ul>
   <li>Camera: only when you tap Scan QR or scan text. Frames are processed on the phone (including on-device text recognition) and are neither stored nor sent anywhere.</li>
-  <li>Photos and files: only the item you pick (for example a QR code image, an attachment or a backup file) is read, for that action only.</li>
+  <li>Photos and files: only the items you pick (for example a QR code image, an attachment, a backup file, or the files and folders you choose to lock in the optional encrypted file storage) are read, for that action only. When you lock files there, the app asks Android to remove the originals, and Android may ask you to confirm. The app does not scan or list your other files.</li>
   <li>Biometric: only to offer fingerprint or face unlock if you turn it on.</li>
   <li>Internet and network state: only for the optional Google Drive backup and SMB sync you set up.</li>
 </ul>
@@ -55,7 +55,7 @@
 <p>8. OPTIONAL: SMB SYNC</p>
 <p>If you enter an SMB file-share address and login, CipherON uploads the encrypted vault file to the server you choose and control. The server's operator can see an encrypted file but not its contents. The login password is stored encrypted on your phone. The developer has no access to your server.</p>
 <h2>9. Files you export or share</h2>
-<p>If you export to plain CSV, Excel or PDF, or share a backup, the file is written where you choose and leaves the app's protection. Plain exports are not encrypted unless you select the encrypted option. Protect those files yourself and delete them when no longer needed.</p>
+<p>If you export to plain CSV, Excel or PDF, or share a backup, the file is written where you choose and leaves the app's protection. The same applies to files you send out of the optional encrypted file storage: they are written to your phone's Pictures, Movies, Music or Downloads folder as ordinary, unprotected files. Plain exports are not encrypted unless you select the encrypted option. Protect those files yourself and delete them when no longer needed.</p>
 <h2>10. Sharing and disclosure</h2>
 <p>The developer holds no personal data from the app and therefore has nothing to share, sell, rent or disclose, and does not do so. Because the developer holds no copy of your vault, the developer cannot hand it over to anyone and cannot recover it.</p>
 <h2>11. Retention and deletion</h2>
@@ -72,7 +72,16 @@
 <p>If this policy changes, the new version will be published at <a href="https://kssp-apps.github.io/cipheron-site/privacy.html">https://kssp-apps.github.io/cipheron-site/privacy.html</a> and included in the next app update, with a new effective date. Material changes will be described in the update notes.</p>
 <h2>17. Website contact form</h2>
 <p>The CipherON website has a contact form. It does not send anything by itself: when you press Send it opens your own email app with a message addressed to the developer, already filled in with what you typed. The developer receives only what you choose to send, uses it only to reply to you, and keeps it only as long as needed for that purpose. This applies only to messages you send to the developer; it is separate from the app, which collects nothing.</p>
-<h2>18. Contact</h2>
+<h2>18. Optional encrypted file storage</h2>
+<p>CipherON includes an optional feature that lets you lock files and folders you choose, such as pictures, videos and documents, in encrypted storage inside the app. It is protected by a separate password that you create. It is not needed to use the password vault.</p>
+<p>What it does: when you pick files or a folder with Android's file picker, the app encrypts a copy in its private storage, checks the copy, and then asks Android to remove the originals, so they no longer appear in the Gallery or the Files app. When you send files out, the app decrypts them, writes them back to your phone's Pictures, Movies, Music or Downloads folder, where they appear again, and removes them from the encrypted storage.</p>
+<p>How it is protected: every file is encrypted with AES-256-GCM using a random key. That key is protected by your separate password with Argon2id. File and folder names are encrypted too. The key is held in memory only while the storage is open; it is discarded when you lock the vault, leave the app or close the storage. Screenshots are blocked while it is open. After several wrong password tries the app makes you wait before you can try again.</p>
+<p>Your separate password is never stored or sent anywhere and cannot be recovered or reset by anyone, including the developer. If you forget it, the files inside are permanently lost.</p>
+<p>Where it is kept: when you create it you choose either a folder on your phone (the app makes a hidden folder named .cipheron inside the folder you pick) or the app's own private storage. The files in that folder are already encrypted and have random names. They stay there when you uninstall the app, and a new install can use them again if you point it to the same folder and know the vault password. Anyone who can reach that folder, such as another app with storage access or someone using a computer, can copy the encrypted files but cannot read them without your vault password; deleting them from the folder deletes the locked files for good.</p>
+<p>Locked files never leave your phone through CipherON. They are not uploaded, and they are not part of Google Drive backups, SMB sync, exports or Android backup. The developer receives nothing from this feature.</p>
+<p>This storage is independent of the password vault: deleting the password vault from Settings, starting a new one after forgetting the master password, or self-destruction after too many wrong master password tries does not erase it. You remove files from it yourself by deleting them or sending them out. Uninstalling the app removes a vault kept in the app's private storage for good; a vault kept in a folder you chose stays in that folder until you delete it.</p>
+<p>Limits: files you send out are ordinary, unprotected files. Copies made earlier by you or by other apps, for example automatic photo backups, are not affected by locking a file. Keep your own backups: the developer cannot recover locked files.</p>
+<h2>19. Contact</h2>
 <p>Questions about privacy: contact the developer through the contact form at <a href="https://kssp-apps.github.io/cipheron-site/contact.html">https://kssp-apps.github.io/cipheron-site/contact.html</a>.</p>
 
   <p><a href="index.html">&larr; Back to the CipherON homepage</a></p>
